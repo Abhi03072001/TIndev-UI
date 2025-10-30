@@ -24,8 +24,11 @@ const Body = () => {
       });
       dispatch(addUser(res.data));
     } catch (error) {
-      if(error.status === 401) {
-        navigate("/login");
+      if(error.response && error.response.status === 401) {
+        // Only navigate to login if we're not already on the login page
+        if (window.location.pathname !== '/login') {
+          navigate("/login");
+        }
       }
       console.error("Error fetching user:", error);
     }

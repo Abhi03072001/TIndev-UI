@@ -1,12 +1,41 @@
-# React + Vite
+# Tindev Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup Instructions
 
-Currently, two official plugins are available:
+1. Install dependencies:
+```bash
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Start the development server:
+```bash
+npm run dev
+```
 
-## Expanding the ESLint configuration
+The frontend will run on `http://localhost:5173`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Fixed Issues
+
+1. **Field name mismatch**: Fixed `emailId` to `email` in login/signup requests
+2. **Authentication flow**: Added proper error handling for unauthorized requests
+3. **Navigation**: Prevented infinite redirects when already on login page
+
+## Testing the Application
+
+1. Open `http://localhost:5173` in your browser
+2. You should be redirected to the login page if not authenticated
+3. Create a new account or login with existing credentials
+4. After successful login, you'll be redirected to the main feed
+
+## Common Issues
+
+- **Unauthorized Error**: This is normal behavior when not logged in. The app will redirect to login.
+- **CORS Error**: Make sure the backend server is running on port 3000
+- **Network Error**: Check if both frontend and backend are running
+
+## Development
+
+- The app uses Redux for state management
+- React Router for navigation
+- Axios for API calls with credentials enabled
+- Tailwind CSS for styling
