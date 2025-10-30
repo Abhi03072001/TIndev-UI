@@ -39,3 +39,32 @@ The frontend will run on `http://localhost:5173`
 - React Router for navigation
 - Axios for API calls with credentials enabled
 - Tailwind CSS for styling
+
+
+
+
+
+
+
+
+
+
+# Deployment
+
+- Signup on AWS 
+- Launch instance
+- chmod 400 <secret>.pem(for windows its different)
+- ssh -i (take the command from ec2 instance)
+- Install Node version (in which version your project built)
+- Git clone
+- Frontend    
+    - npm install  -> dependencies install
+    - npm run build
+    - sudo apt update
+    #for install start and enable nginx
+    - sudo apt install nginx
+    - sudo systemctl start nginx
+    - sudo systemctl enable nginx
+    - Copy code from dist(build files) to /var/www/html/
+    - sudo scp -r dist/* /var/www/html/
+    - Enable port :80 of your instance
